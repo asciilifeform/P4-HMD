@@ -19,6 +19,11 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 
 **The Linux kernel module and its documentation was generated entirely using an LLM!** It runs stably (including when unit is unplugged and replugged) but could contain bugs! Including exploitable bugs! Use at your own risk.
 
+# Possibly Interesting Aspects
+
+* LLM ("Claude Opus 4.5", "Max" variant) required ~2000 prompts to produce the Linux kernel module for this device.
+* The FPGA code (hand-written, builds on [Yosys](https://github.com/YosysHQ/yosys)) includes a working fully-asynchronous SPI slave controller for the [iCE40](https://www.latticesemi.com/en/Products/FPGAandCPLD/iCE40) -- an item AFAIK not previously published anywhere.
+
 ## License
 
 SPDX-License-Identifier: GPL-2.0
