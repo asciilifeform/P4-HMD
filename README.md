@@ -25,7 +25,7 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 
 * LLM ("Claude Opus 4.5", "Max" variant) required ~2000 prompts to produce the Linux kernel module for this device.
 * The kernel module makes correct use of DMA and does not substantially burden the CPU. It works with the current Linux kernel and can be used with very modest irons. Maximum SPI speed is limited to ~25MHz by the board's I/O impedance, but this is unimportant, as the maximum bit rate at which the P4 is able to receive differential picture updates is 8MHz. The FPGA performs the necessary buffering and clock domain crossing.
-* There is support for powering down and waking the P4 via xorg's DPMS.
+* There is support for powering down/waking and dimming/undimming the P4, as well as rotation.
 * The FPGA code (hand-written, builds on [Yosys](https://github.com/YosysHQ/yosys)) includes a working fully-asynchronous SPI slave controller for the [iCE40](https://www.latticesemi.com/en/Products/FPGAandCPLD/iCE40) -- an item AFAIK not previously published anywhere.
 * The picture quality is not adequately represented by the above photo, as the P4 is a persistence-of-vision device (it contains a vibrating mirror and a column of 280 micro-LEDs.) The contrast ratio and sharpness (though not the resolution or colour depth!) are IMHO well ahead of today's OLED glasses, even though the P4 was released in 1990!
 * The P4 originally included a CGA-compatible 8-bit ISA interface card (I threw mine out, as it did not appear to work reliably even with period hardware, or rather with any such as I was able to unearth.)
