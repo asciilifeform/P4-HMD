@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Makefile for the P4 rotated monochrome SPI display driver
+#
+# For in-tree kernel builds at drivers/gpu/drm/p4/
+#
+
+obj-$(CONFIG_DRM_P4) := drm_p4.o
+
+# Excluded from kernel build (keep in sync with out-of-tree Makefile USERLAND_EXCLUDE):
+#   tests.c, p4_emulator.c, p4_setmode.c, p4_calibrate.c - userspace tools
+#   fake.c - out-of-tree fakemode testing only
+# Also excluded:
+#   rotate_neon.c - handled separately below (ARM64/ARM only)
+EXCLUDE := tests.c p4_emulator.c p4_setmode.c p4_calibrate.c fake.c rotate_neon.c
+
+drm_p4-y := $(patsubst %.c,%.o,$(filter-out $(EXCLUDE),$(notdir $(wildcard $(src)/*.c))))
+
+# NEON-optimized rotation (ARM64 and ARM with NEON only)
+drm_p4-$(CONFIG_ARM64) += rotate_neon.o
+drm_p4-$(CONFIG_ARM) += rotate_neon.o
+
+# Enable NEON intrinsics for rotate_neon.c:
+#  - Remove kernel's -mgeneral-regs-only that blocks SIMD
+#  - Add compiler's include path for arm_neon.h
+CFLAGS_rotate_neon.o := -ffreestanding -isystem $(shell $(CC) -print-file-name=include)
+CFLAGS_REMOVE_rotate_neon.o := -mgeneral-regs-only

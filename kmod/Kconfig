@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config DRM_P4
+	tristate "Private Eye P4 Display via SPI Interface"
+	depends on DRM && SPI
+	select DRM_GEM_DMA_HELPER
+	select DRM_KMS_HELPER
+	help
+	  DRM driver for the P4 rotated monochrome head-mounted display
+	  connected via SPI. The display is 720x280 but mounted rotated
+	  90 degrees, so appears as 280x720 to the hardware.
+
+	  To compile this as a module, choose M here. The module will
+	  be called drm_p4.
+
+	  If unsure, say N.

@@ -1,0 +1,85 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Device Tree Overlay for P4 display on RPi SPI0
+ * Generated from p4_pins.conf - do not edit directly
+ * Regenerate with: make dtsi
+ *
+ * Compile:
+ *   dtc -@ -I dts -O dtb -o p4_display.dtbo p4_display.dtsi
+ *
+ * Install:
+ *   sudo cp p4_display.dtbo /boot/overlays/
+ *
+ * Enable in /boot/config.txt:
+ *   dtoverlay=p4_display
+ *
+ * Pin Configuration:
+ *   ENABLE  = GPIO5
+ *   READY   = GPIO6
+ *   COLD    = GPIO22
+ *   NRESET  = GPIO13 (active low)
+ *   NSLEEP  = GPIO17 (active low)
+ *   VSYNC   = GPIO27
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2711";
+
+	/* Enable SPI0 */
+	fragment@0 {
+		target = <&spi0>;
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			/* Disable existing spidev@0 to free chipselect 0 */
+			spidev@0 {
+				status = "disabled";
+			};
+
+			p4_display: p4-display@0 {
+				compatible = "example,p4-display";
+				reg = <0>;  /* CE0 */
+				spi-max-frequency = <28000000>;
+				p4-overlay-id = "v130";
+				/* SPI mode 0 (CPOL=0, CPHA=0) - no spi-cpol/spi-cpha */
+
+				enable-gpios = <&gpio 5 0>;
+				ready-gpios = <&gpio 6 0>;
+				cold-gpios = <&gpio 22 0>;
+				nreset-gpios = <&gpio 13 0>;  /* active-low HW, flag=0: driver uses physical values */
+				nsleep-gpios = <&gpio 17 0>;  /* active-low HW, flag=0: driver uses physical values */
+				vsync-gpios = <&gpio 27 0>;
+
+				/* upside-down; */  /* Uncomment for 180° flip at boot */
+			};
+		};
+	};
+
+	/* Configure GPIO pin modes */
+	fragment@1 {
+		target = <&gpio>;
+		__overlay__ {
+			p4_pins: p4_pins {
+				brcm,pins = <5 6 22 13 17 27>;
+				brcm,function = <1 0 0 1 1 0>;  /* out, in, in, out, out, in */
+				brcm,pull = <0 0 0 0 0 0>;      /* none */
+			};
+		};
+	};
+
+	/* Parameters for runtime customization */
+	__overrides__ {
+		speed = <&p4_display>, "spi-max-frequency:0";
+		enable_pin = <&p4_display>, "enable-gpios:4";
+		ready_pin = <&p4_display>, "ready-gpios:4";
+		cold_pin = <&p4_display>, "cold-gpios:4";
+		nreset_pin = <&p4_display>, "nreset-gpios:4";
+		nsleep_pin = <&p4_display>, "nsleep-gpios:4";
+		vsync_pin = <&p4_display>, "vsync-gpios:4";
+	};
+};

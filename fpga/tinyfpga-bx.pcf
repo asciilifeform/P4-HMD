@@ -1,0 +1,63 @@
+###################
+# Clock and Lamp: #
+###################
+
+# In: 16MHz from resonator
+set_io -nowarn CLK16 B2
+
+# Out: Status Lamp
+set_io -nowarn STATUS B3
+
+##############
+# Slave SPI: #
+##############
+
+# In: SPI nCS (221/rpi24/GPIO8-CE0)
+set_io -nowarn SPI_NCS A2
+
+# In: SPI SCK (3B/rpi23/GPIO11-SCLK0)
+set_io -nowarn SPI_SK C1
+
+# In: SPI MISO (7A/rpi21/GPIO9-MISO0)
+set_io -nowarn SPI_DI D2
+
+# Out: SPI MOSI (10A/rpi19/GPIO10-MOSI0)
+set_io -nowarn SPI_DO D1
+
+###################
+# Misc. Host I/O: #
+###################
+
+# In: nRESET (224/rpi33/GPIO13)
+set_io -nowarn NRESET A1
+
+# Out: Device Ready (3A/rpi31/GPIO6)
+set_io -nowarn DEV_RDY B1
+
+# In: Enable (2A/rpi29/GPIO5)
+set_io -nowarn ENABLE C2
+
+# Out: Cold (10B/rpi15/GPIO22)
+set_io -nowarn COLD E1
+
+# Out: VBlank (26A/rpi13/GPIO27)
+set_io -nowarn VBLANK G2
+
+# In: nSLEEP (55/rpi11/GPIO17)
+set_io -nowarn NSLEEP J1
+
+############################
+# Private Eye (3.3v<->5v): #
+############################
+
+# Out: Private Eye Clock (13A)
+set_io -nowarn PE_CLK E2
+
+# Out: Private Eye Data (54)
+set_io -nowarn PE_DAT H1
+
+# Out: Private Eye nBOS (116)
+set_io -nowarn PE_NBOS A9
+
+# In: Private Eye nRDY (111)
+set_io -nowarn PE_NRDY H9
