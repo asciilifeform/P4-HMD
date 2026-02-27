@@ -1,6 +1,9 @@
-# "Private Eye P4" Interface Board
+# Interface Board and Linux Support for Reflection Technology's "Private Eye P4" electromechanical HMD.
 
 This project allows connecting the [Private Eye P4 head-mounted display](https://www.loper-os.org/?p=752) to an RPI-compatible Linux machine via an FPGA interface board connected through SPI.
+
+![Photo of Test Unit](/photos/rpi.jpeg)
+![Midnight Commander seen through ocular](/photos/mc.jpeg)
 
 Required:
 
