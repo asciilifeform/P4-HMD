@@ -36,7 +36,7 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 
 # More about the Private Eye
 
-* [Vendor brochure.](https://billbuxton.com/Private_Eye_Brochure.pdf)
+* [Vendor brochure.](/p4docs/Private_Eye_Brochure.pdf)
 * [Collection of original vendor docs](https://www.eventhorizons.com/projects/P4/p4.html) where I found the interface data sheet.
 * [Museum exhibit.](https://artsandculture.google.com/asset/reflection-technology-private-eye-display/QgFnZtDAdVz0CQ?hl=en)
 * A [paper](https://sid.onlinelibrary.wiley.com/doi/full/10.1002/j.2637-496X.1990.tb05924.x) by the designers.
