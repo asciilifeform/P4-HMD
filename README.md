@@ -15,7 +15,9 @@ This project allows connecting the [Private Eye P4 head-mounted display](https:/
 
 The display is 720x280 pixels but in fact natively rotated to 90 degrees, so it appears
 as 280x720 to the hardware. The driver handles adjustable rotation, power management, brightness (1 bit!), RLE compression,
-and differential updates. It may be used with xorg or in console mode. Refresh of the picture up to 30Hz is possible, though for small deltas it is in practice faster (we use run-length encoding in the FPGA and send only differences from the previous frame, when there was one.) Animations look reasonable.
+and differential updates. It may be used with xorg or in console mode. Refresh of the picture up to 30Hz is possible, though for small deltas it is in practice faster (we use run-length encoding in the FPGA and send only differences from the previous frame, when there was one.)
+
+Animations look reasonable, and there is very little perceptible flicker, as the mirror actually vibrates at 50Hz, and one entire column is displayed at all times (rather than one pixel, as on e.g. a CRT refreshed at the same rate.) The 30Hz limit for full-frame updates comes from the maximum bit rate on the cable.
 
 # Caution
 
