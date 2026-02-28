@@ -10,7 +10,7 @@ This project allows connecting the [Private Eye P4 head-mounted display](https:/
 * The [Private Eye P4](/p4docs/p4.pdf) itself. (No, I don't know where you could get one. Sadly, it is entirely conceivable that I have the very last surviving unit.)
 * An RPI or any similar machine with a compatible I/O pinout.
 * [The interface PCB](/pcb/p4_schem.png) (I had 5 made for ~50 USD at JLC, but it's a 2-layer, so potentially hand-etchable. You will need the level shifter, passives, connectors (standard 2.54mm headers; as for the P4's data cable, the PCB footprint presumes [this](https://www.amazon.com/dp/B007PQ0ZG6) socket or its equivalent), and perhaps half an hour to solder.)
-* A [TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-ax-bx) board (may be out of print now!) It is possible to use a different FPGA (you will need one with on-board SRAM) but it then you will need to change certain things in the code, and, obviously, you will also need a different PCB.
+* A [TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-ax-bx) board (may be out of print now!) It is possible to use a different FPGA (you will need one with on-board SRAM) but then you will need to change certain things in the code, and, obviously, you will also need a different PCB.
 * The code in this repo ([FPGA firmware](/fpga/) and [Linux kernel module](/kmod/).)
 
 The display is 720x280 pixels but in fact natively rotated to 90 degrees, so it appears
