@@ -47,4 +47,5 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 # License
 
 The driver: SPDX-License-Identifier: GPL-2.0
+
 The FPGA code and PCB are public domain.
