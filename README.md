@@ -19,6 +19,10 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 
 Animations look reasonable, and there is very little perceptible flicker, as the mirror actually vibrates at 50Hz, and one entire column is displayed at all times (rather than one pixel, as on e.g. a CRT refreshed at the same rate.) The 30Hz limit for full-frame updates comes from the maximum bit rate on the cable.
 
+[<img src="./p4docs/p4_optics.png" width="400" />](/p4docs/p4_optics.png)
+[<img src="./p4docs/p4_vendor.png" width="400" />](/p4docs/p4_vendor.png)
+
+
 # Caution
 
 **The Linux kernel module and its documentation was generated entirely using an LLM!** It runs stably (including when unit is unplugged and replugged) but could contain bugs! Including exploitable bugs! Use at your own risk.
