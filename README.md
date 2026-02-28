@@ -5,7 +5,7 @@ This project allows connecting the [Private Eye P4 head-mounted display](https:/
 ![Photo of Test Unit](/photos/rpi.jpeg)
 ![Midnight Commander seen through ocular](/photos/mc.jpeg)
 
-Required:
+# You will need:
 
 * The [Private Eye P4](/p4docs/p4.pdf) itself. (No, I don't know where you could get one. Sadly, it is entirely conceivable that I have the very last surviving unit.)
 * An RPI or any similar machine with a compatible I/O pinout.
@@ -21,7 +21,7 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 
 **The Linux kernel module and its documentation was generated entirely using an LLM!** It runs stably (including when unit is unplugged and replugged) but could contain bugs! Including exploitable bugs! Use at your own risk.
 
-# Possibly Interesting Aspects
+# Possibly-interesting aspects
 
 * LLM ("Claude Opus 4.5", "Max" variant) required ~2000 prompts to produce the Linux kernel module for this device.
 * The [Linux kernel driver](/kmod/) makes correct use of DMA and does not substantially burden the CPU. It works with the current kernel, and can be used with very modest irons. Maximum SPI speed is limited to ~25MHz by the board's I/O impedance, but this is unimportant, as the maximum bit rate at which the P4 is able to receive differential picture updates is 8MHz. The FPGA performs the necessary buffering and clock domain crossing.
@@ -34,7 +34,7 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 * The P4 originally included a CGA-compatible 8-bit ISA interface card (I threw mine out, as it did not appear to work reliably even with period hardware, or rather with any such as I was able to unearth.)
 * The [vendor docs](/p4docs/p4.pdf) hint that horizontal resolutions in excess of 720 columns may be available (the 32kB SRAM framebuffer installed in the P4 suggests that this may be true: the official resolution 720x280 uses only 25200 bytes), but I have not been able to discover a means for setting any useful undocumented modes. Certain values of the reserved command bits do appear to produce a corrupted image where the swing of the mirror clearly exceeds what is seen when using the standard resolution. It is in fact possible to send a full 32kB to the P4 (any more and it crashes/resets) -- but the extra bits do not appear anywhere in the visible picture.
 
-# More Info on the Private Eye
+# More about the Private Eye
 
 * [Vendor brochure.](https://billbuxton.com/Private_Eye_Brochure.pdf)
 * [Collection of original vendor docs](https://www.eventhorizons.com/projects/P4/p4.html) where I found the interface data sheet.
@@ -44,6 +44,7 @@ and differential updates. It may be used with xorg or in console mode. Refresh o
 * [Article](https://arstechnica.com/gaming/2024/05/virtual-boy-the-bizarre-rise-and-quick-fall-of-nintendos-enigmatic-red-console/) about the "Virtual Boy", Nintendo's attempt at integrating the Private Eye into a game console. Before I purchased my P4 in 2004, I had obtained and barbarically destroyed a "Virtual Boy" in a failed attempt to create a usable PC HMD (don't do this! they're valuable antiques now. And the HMD optics are not usable without the intact plastic chassis; and similarly, the driving chipset is not cleanly separable from the rest of the Virtual Boy.)
 * [My ancient parallel port interface to the P4.](https://www.loper-os.org/vintage/paralleleye/eye.html)
 
-## License
+# License
 
-SPDX-License-Identifier: GPL-2.0
+The driver: SPDX-License-Identifier: GPL-2.0
+The FPGA code and PCB are public domain.
