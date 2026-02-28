@@ -9,7 +9,7 @@ Required:
 
 * The [Private Eye P4](/p4docs/p4.pdf) itself. (No, I don't know where you could get one. Sadly, it is entirely conceivable that I have the very last surviving unit.)
 * An RPI or any similar machine with a compatible I/O pinout.
-* [The interface PCB](/pcb/p4_schem.png) (I had 5 made for ~50 USD at JLC, but it's a 2-layer, so potentially hand-etchable. You will need the level shifter, passives, connector pins, etc., and perhaps half an hour to solder.)
+* [The interface PCB](/pcb/p4_schem.png) (I had 5 made for ~50 USD at JLC, but it's a 2-layer, so potentially hand-etchable. You will need the level shifter, passives, connectors (standard 2.54mm headers; as for the P4's data cable, the PCB footprint presumes [this](https://www.amazon.com/dp/B007PQ0ZG6) socket or its equivalent), etc., and perhaps half an hour to solder.)
 * [TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-ax-bx) (may be out of print now!)
 * The code in this repo ([FPGA firmware](/fpga/) and [Linux kernel module](/kmod/).)
 
