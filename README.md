@@ -17,7 +17,7 @@ The display is 720x280 pixels but in fact natively rotated to 90 degrees, so it 
 as 280x720 to the hardware. The driver handles adjustable rotation, power management, brightness (1 bit!), RLE compression,
 and differential updates. It may be used with xorg or in console mode. Refresh of the picture up to 30Hz is possible, though for small deltas it is in practice faster (we use run-length encoding in the FPGA and send only differences from the previous frame, when there was one.)
 
-Animations look reasonable, and there is very little perceptible flicker, as the mirror actually vibrates at 50Hz, and one entire pixel column of the on-board framebuffer is visible somewhere at all times (rather than one pixel, as on e.g. a CRT refreshed at the same rate.) The 30Hz limit for full-frame updates comes from the maximum bit rate on the cable.
+Animations look reasonable, and there is very little perceptible flicker, as the mirror actually vibrates at 50Hz, and at any given time, one entire 280-pixel column of the on-board framebuffer is always being displayed (rather than one pixel, and only during forward horizontal scan, as on e.g. a CRT refreshed at the same rate.) The 30Hz limit for full-frame updates comes from the maximum bit rate on the cable.
 
 [<img src="./p4docs/p4_optics.png" width="400" />](/p4docs/p4_optics.png)
 [<img src="./p4docs/p4_vendor.png" width="400" />](/p4docs/p4_vendor.png)
